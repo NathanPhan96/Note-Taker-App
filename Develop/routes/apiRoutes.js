@@ -40,6 +40,23 @@ router.post('/', function (req, res) {
     }
 });
 
+router.delete("/:id", function(req, res) {
+    let data = fs.readFileSync('./db/db.json', 'utf8');
+    const dataFromJSON = JSON.parse(data)
+ 
+    const newNotes = dataFromJSON.filter((note) => {
+     return note.id !== req.params.id;
+    });
+    fs.writeFile('./db/db.json', JSON.stringify(newNotes), (err) => {
+    if (err) {
+     console.error(err);
+     return;
+    }
+ 
+   });
+   res.json(newNotes);
+ });
+
 
 
 module.exports = router;
