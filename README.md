@@ -2,7 +2,7 @@
 
 ## Heroku Deployment
 
-
+https://np-note-taker-app.herokuapp.com/notes
 
 ## App Description
 
